@@ -13,15 +13,19 @@ import "./App.css";
 const SelectComponent = () => {
   return (
     <Select
+    menuPortalTarget={document.body}
       styles={{
         container: (provided) => ({
           ...provided,
           flex: 1, // full width
           alignSelf: 'stretch', // full height
+          pointerEvents: focus ? undefined : undefined,
+          border: '0px',
         }),
-        control: (provided) => ({
+        control: (provided, state) => ({
           ...provided,
-          border: '0px solid red',
+          border: '0px',
+          borderColor: state.isSelected ? 'grey' : 'red'
         })
       }}
       options={[
